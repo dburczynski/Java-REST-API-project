@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+</head>
+<body>
+    <div th:switch="${persons}">
+        <h2 th:case="null">No persons</h2>
+        <div th:case="*">
+            <h2>Persons</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Surname</th>
+                    <th>Email</th>
+                    <th>Company Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="person : ${persons}">
+                    <td th:text="${person.firstName}"></td>
+                    <td th:text="${person.surname}"></td>
+                    <td th:text="${person.email}"></td>
+                    <td th:text="${person.companyName}"></td>
+                    <td th:text="${person.dateOfHire}"></td>
+                    <td><a th:href="@{/person_edit/{id}(id=${person.id})}">Edit</a></td>
+                    <td><a th:href="@{/person_delete/{id}(id=${person.id})}">Delete</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <p><a href="/">Home</a></p>
+        <p><a href="/person">List person</a></p>
+        <p><a href="/person_add">Add new person</a></p>
+    </div>
+
+</body>
+</html>

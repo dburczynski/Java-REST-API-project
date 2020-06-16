@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Company Employee Manager</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+</head>
+<body>
+<h1>Welcome to the app</h1>
+
+<h4><a th:href="@{/person}">List persons</a></h4>
+<h4><a th:href="@{/person_add}">Add person</a></h4>
+<h4><a th:href="@{/person_find}">Search for person</a></h4>
+<h4><a th:href="@{/employee_find}">Search for employee</a></h4>
+<h4><a th:href="@{/download/persons.csv}">Export persons to csv</a> </h4>
+<br/>
+<h4><a th:href="@{/company}">List companies</a> </h4>
+<h4><a th:href="@{/company_add}">Add company</a></h4>
+</body>
+</html>

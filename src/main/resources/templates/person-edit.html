@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+</head>
+<body>
+<form action="#" th:action="@{/person_edit}" th:object="${person}" method="post">
+    <h1>Edit person</h1>
+    <div th:if="${#fields.hasErrors()}">
+        <span class="validationError">
+            Please correct the problems below and resubmit.
+        </span>
+    </div>
+    <input type="hidden" th:field="*{id}">
+    <label for="firstName">First name:</label>
+    <input type="text" th:field="*{firstName}" th:placeholder="${person.firstName}">
+    <span class="validationError"
+          th:if="${#fields.hasErrors('firstName')}"
+          th:errors="*{firstName}">firstName Error
+    </span>
+    <br/>
+
+    <label for="surname">Surname:</label>
+    <input type="text" th:field="*{surname}" th:placeholder="${person.surname}">
+    <span class="validationError"
+          th:if="${#fields.hasErrors('surname')}"
+          th:errors="*{surname}">Surname Error
+    </span>
+    <br/>
+
+    <label for="email">Email:</label>
+    <input type="text" th:field="*{email}" th:placeholder="${person.email}">
+    <span class="validationError"
+          th:if="${#fields.hasErrors('email')}"
+          th:errors="*{email}">email Error
+    </span>
+    <br/>
+
+    <label for="companyName">Company Name:</label>
+    <input type="text" th:field="*{companyName}" th:placeholder="${person.companyName}">
+    <span class="validationError"
+          th:if="${#fields.hasErrors('companyName')}"
+          th:errors="*{companyName}">companyName Error
+    </span>
+    <br/>
+    <label for="dateOfHire">Date of hire:</label>
+    <input type="text" th:field="*{dateOfHire}">
+    <span class="validationError"
+          th:if="${#fields.hasErrors('dateOfHire')}"
+          th:errors="*{dateOfHire}">companyName Error
+    </span>
+    <input type="submit" value="Update"/>
+    <p><a href="/">Home</a></p>
+    <p><a href="/person">List person</a></p>
+</form>
+</body>
+</html>

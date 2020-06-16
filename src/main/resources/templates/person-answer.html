@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Application</title>
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+</head>
+<body>
+<h1>Search Result</h1>
+<div th:switch="${person}">
+    <h2 th:case="null">Error 404: Person not found</h2>
+    <div th:case="*">
+        <table>
+            <thead>
+            <tr>
+                <th>First name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Company name</th>
+                <th>Date of hire</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td th:text="${person.firstName}"></td>
+                <td th:text="${person.surname}"></td>
+                <td th:text="${person.email}"></td>
+                <td th:text="${person.companyName}"></td>
+                <td th:text="${person.dateOfHire}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/">Home</a></p>
+    <p><a href="/person">List person</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+</head>
+<body th:align="center">
+<form th:action="@{/company_add}" th:object="${company}" method="post">
+    <h1>Create Company</h1>
+    <div th:if="${#fields.hasErrors()}">
+        <span class="validationError">
+            Please correct the problems below and resubmit.
+        </span>
+    </div>
+
+    <label for="companyName">Company name:</label>
+    <input type="text" th:field="*{companyName}">
+    <span class="validationError"
+          th:if="${#fields.hasErrors('companyName')}"
+          th:errors="*{companyName}">companyName Error
+    </span>
+    <br/>
+
+
+    <label for="owner">Owner name:</label>
+    <input type="text" th:field="*{owner}">
+    <span class="validationError"
+          th:if="${#fields.hasErrors('owner')}"
+          th:errors="*{owner}">owner Error
+    </span>
+    <br/>
+
+    <input type="submit" value="Submit"/>
+    <p><a href="/">Home</a></p>
+    <p><a href="/company">List Company</a></p>
+</form>
+</body>
+</html>

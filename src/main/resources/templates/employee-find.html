@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Application</title>
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+</head>
+<body>
+<h1>Find Employee</h1>
+<form action="#" th:action="@{/employee_find/answer}" th:object="${person}" method="post">
+    <label for="companyName">Name of company:</label>
+    <input type="text" th:field="*{companyName}" companyName="companyName" placeholder="Company name">
+    <input type="submit" value="Search">
+</form>
+<p><a href="/">Home</a></p>
+<p><a href="/person">List person</a></p>
+</body>
+</html>
